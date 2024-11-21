@@ -1,0 +1,77 @@
+
+-- Create the table structure for the Superstore dataset
+CREATE TABLE project (
+    rowid INT,
+    orderid STRING,
+    orderdata STRING,
+    shipdate STRING,
+    shipmode STRING,
+    customerid STRING,
+    customername STRING,
+    segment STRING,
+    country STRING,
+    city STRING,
+    state STRING,
+    postalcode INT,
+    region STRING,
+    productid STRING,
+    category STRING,
+    subcategory STRING,
+    productname STRING,
+    sales DECIMAL(10,2),
+    quantity INT,
+    discount DECIMAL(10,2),
+    profit DECIMAL(10,2)
+)
+ROW FORMAT DELIMITED 
+FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE;
+
+-- Load data into the table
+LOAD DATA LOCAL INPATH 'store.csv' INTO TABLE project;
+
+-- Query 1: Regions with the Highest Sales and Profits
+-- This query identifies regions ranked by their total sales and profits.
+SELECT region, 
+       SUM(sales) AS total_sales, 
+       SUM(profit) AS total_profits 
+FROM project 
+GROUP BY region 
+ORDER BY total_profits DESC;
+
+-- Query 2: Profit Margin Analysis by Region
+-- This query calculates the profit margin as a percentage of sales for each region.
+SELECT region, 
+       ROUND((SUM(profit) / SUM(sales)) * 100, 2) AS profit_margin 
+FROM project 
+GROUP BY region 
+ORDER BY profit_margin DESC;
+
+-- Query 3: Analysis of Top Sales and Profit Categories by Region
+-- This query determines the top sales and profit categories within each region.
+SELECT region, 
+       category, 
+       SUM(sales) AS total_sales, 
+       SUM(profit) AS total_profit 
+FROM project 
+GROUP BY region, category 
+ORDER BY total_profit DESC;
+
+-- Query 4: Analysis of Top Sales and Profits by Category in Each State
+-- This query provides insights into the top-performing categories in each state.
+SELECT state, 
+       category, 
+       SUM(sales) AS total_sales, 
+       SUM(profit) AS total_profit 
+FROM project 
+GROUP BY state, category 
+ORDER BY total_profit DESC;
+
+-- Query 5: Analysis of Profit and Sales by Segment
+-- This query evaluates sales and profit distribution across customer segments.
+SELECT segment, 
+       SUM(sales) AS total_sales, 
+       SUM(profit) AS total_profit 
+FROM project 
+GROUP BY segment 
+ORDER BY total_profit DESC;
