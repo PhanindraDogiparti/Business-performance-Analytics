@@ -19,7 +19,7 @@ This project analyzes the sales performance of a hypothetical retail company, "S
 - **Big Data Tools:** Apache Hive, Hadoop HDFS (Sandbox)  
 - **Libraries and Frameworks:** PySpark, Pandas, Matplotlib  
 
-## Superstore Hive Queries
+## Hive Queries
 This project includes HiveQL scripts to analyze the Superstore dataset. These queries provide valuable insights into sales, profits, and performance across regions, categories, and customer segments.
 
 ### Table Structure
