@@ -1,7 +1,7 @@
 # Business Performance Analytics
 
 ## 📚 Overview
-This project analyzes the sales performance of a hypothetical retail company, "Superstore," using a publicly available dataset. It evaluates sales outcomes, identifies trends, and develops strategies to enhance profitability. Key tasks include querying data with Apache Hive on a Hadoop Sandbox, visualizing insights in R, and building a predictive sales model using PySpark.
+This project analyzes the sales performance of a hypothetical retail company, "Superstore," using a publicly available dataset. It focuses on evaluating sales outcomes, identifying trends, and developing strategies to enhance profitability. Key tasks include querying data with Apache Hive on a Hadoop Sandbox, visualizing insights in R, and building a predictive sales model using PySpark.
 
 ## 📂 Dataset
 - **Source:** Public dataset from Kaggle.  
@@ -18,6 +18,19 @@ This project analyzes the sales performance of a hypothetical retail company, "S
 - **Programming Languages:** Python, R  
 - **Big Data Tools:** Apache Hive, Hadoop HDFS (Sandbox)  
 - **Libraries and Frameworks:** PySpark, Pandas, Matplotlib  
+
+## Superstore Hive Queries
+This project includes HiveQL scripts to analyze the Superstore dataset. These queries provide valuable insights into sales, profits, and performance across regions, categories, and customer segments.
+
+### Table Structure
+The Hive table is structured with fields such as `region`, `category`, `sales`, `profit`, and others to support various types of business analytics.
+
+### Queries Included
+- **Regions with the Highest Sales and Profits**  
+- **Profit Margin Analysis by Region**  
+- **Top Sales and Profit Categories by Region**  
+- **Sales and Profits by Category in Each State**  
+- **Profit and Sales by Segment**  
 
 ## 🧩 Methodology
 1. **Data Preparation:**  
